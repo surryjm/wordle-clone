@@ -4,3 +4,38 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+.hidden {
+  visibility: hidden;
+}
+.page {
+  max-width: 295px;
+  margin: 0 auto;
+}
+.loading-icon {
+  text-align: center;
+  font-size: 40px;
+  padding: 5px 0;
+  /* animation: rotating 2s linear infinite; */
+}
+.navbar {
+  padding: 15px;
+  border-bottom: 2px black solid;
+}
+.brand {
+  font-weight: bold;
+  text-align: center;
+}
+.word-rows {
+  
+}
+.word-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.letter-box {
+  border: 3px solid #ccc;
+  height: 45px;
+  width: 45px;
+  text-transform: uppercase;
+  margin: 7px;
+}
