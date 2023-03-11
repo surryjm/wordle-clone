@@ -15,7 +15,23 @@ body {
   text-align: center;
   font-size: 40px;
   padding: 5px 0;
-  /* animation: rotating 2s linear infinite; */
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  animation: spin 2s linear infinite;
+  background-color: black;
+  background-image: linear-gradient(45deg, red, blue);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .navbar {
   padding: 15px;
@@ -24,9 +40,6 @@ body {
 .brand {
   font-weight: bold;
   text-align: center;
-}
-.word-rows {
-  
 }
 .word-row {
   display: grid;
