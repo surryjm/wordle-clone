@@ -1,3 +1,6 @@
+let currentId;
+let currentElement;
+let idArr = [];
 let currentLength = 0;
 let maxLength = 5;
 let nextBox;
@@ -35,17 +38,23 @@ function handleEnter() {
 }
 
 function handleBackspace() {
-  console.log("backspace");
-  if (currentLength === 0) {
+  currentId = idArr[idArr.length - 1];
+  currentElement = document.getElementById(currentId);
+  if (currentLength === 0 || idArr.length === 0) {
+    currentLength = 0;
     return;
   } else {
-    
+    currentElement.innerText = "";
+    idArr.pop();
+    currentId = idArr[idArr.length - 1];
+    currentLength--;
   }
 }
 
 function submitWord() {
   console.log("submitWord");
   currentLength = 0;
+  idArr = [];
 }
 
 function getNextBox(boxes) {
@@ -65,6 +74,7 @@ function enterLetter(letter) {
   } else {
     nextBox.innerText = letter;
     currentLength += 1;
+    idArr.push(nextBox.id);
   }
 }
 
