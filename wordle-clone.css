@@ -8,7 +8,7 @@ body {
   visibility: hidden;
 }
 .page {
-  max-width: 350px;
+  max-width: 325px;
   margin: 0 auto;
 }
 .loading-icon {
@@ -44,6 +44,7 @@ body {
 .word-rows {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
 }
 .letter-box {
   border: 3px solid #ccc;
@@ -58,6 +59,7 @@ body {
   align-items: center;
   color: black;
   text-align: center;
+  padding: 0;
 }
 .letter-after-enter {
   color: white;
