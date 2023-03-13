@@ -41,14 +41,33 @@ body {
   font-weight: bold;
   text-align: center;
 }
-.word-row {
+.word-rows {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 .letter-box {
   border: 3px solid #ccc;
-  height: 45px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
   text-transform: uppercase;
-  margin: 7px;
+  margin: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.letter-after-enter {
+  color: white;
+  background-color: #888;
+}
+.letter-match {
+  color: white;
+  background-color: darkgreen;
+}
+.letter-close {
+  color: white;
+  background-color: goldenrod;
 }
