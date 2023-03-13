@@ -44,7 +44,8 @@ function handleBackspace() {
     currentLength = 0;
     return;
   } else {
-    currentElement.innerText = "";
+    // currentElement.innerText = "";
+    currentElement.value = "";
     idArr.pop();
     currentId = idArr[idArr.length - 1];
     currentLength--;
@@ -59,7 +60,8 @@ function submitWord() {
 
 function getNextBox(boxes) {
   const boxesArr = [...boxes];
-  nextBox = boxesArr.find(box => box.innerText === "");
+  // nextBox = boxesArr.find(box => box.innerText === "");
+  nextBox = boxesArr.find(box => box.value === "");
   return nextBox;
 }
 
@@ -72,7 +74,8 @@ function enterLetter(letter) {
     console.log("max length reached")
     return;
   } else {
-    nextBox.innerText = letter;
+    nextBox.value = letter;
+    // nextBox.innerText = letter;
     currentLength += 1;
     idArr.push(nextBox.id);
   }
