@@ -45,6 +45,7 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-items: center;
+  row-gap: 10px;
 }
 .letter-box {
   border: 3px solid #ccc;
