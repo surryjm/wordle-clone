@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .hidden {
   visibility: hidden;
@@ -14,7 +14,8 @@ body {
 .loading-icon {
   text-align: center;
   font-size: 40px;
-  padding: 5px 0;
+  margin: 13px 0 0 0;
+  height: 60px;
 }
 @keyframes spin {
   0% {
@@ -25,7 +26,7 @@ body {
   }
 }
 .spinner {
-  animation: spin 2s linear infinite;
+  animation: spin 1s linear infinite;
   background-color: black;
   background-image: linear-gradient(45deg, red, blue);
   background-size: 100%;
@@ -73,4 +74,15 @@ body {
 .letter-close {
   color: white;
   background-color: goldenrod;
+}
+.invalid {
+  animation: invalid-flash 1s;
+}
+@keyframes invalid-flash {
+  5% {
+    border-color: crimson;
+  }
+  100% {
+    border-color: #ccc;
+  }
 }
