@@ -81,14 +81,18 @@ function compareWords(submission, currentRow) {
   console.log(submission, wordOfTheDay)
   let wordMatch = submission.localeCompare(wordOfTheDay)
   if (wordMatch === 0) {
-    showWin()
+    showWin(currentRow)
   } else {
     letterComparison(submission, wordOfTheDay, currentRow);
   }
 }
 
-function showWin() {
+function showWin(currentRow) {
   console.log('WIN')
+  for (let i = 0; i < currentRow.length; i++) {
+    let id = currentRow[i];
+    document.getElementById(id).classList.add("letter-match");
+  }
 }
 
 function letterComparison(submission, wordOfTheDay, currentRow) {
