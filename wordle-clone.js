@@ -92,39 +92,28 @@ function showWin() {
 }
 
 function letterComparison(submission, wordOfTheDay, currentRow) {
-  // let matchArr = [];
-  let greenArr = [];
-  let yellowArr = [];
-  console.log(currentRow)
+  let greenBoxId;
+  let yellowBoxId;
+  let grayBoxId;
   for (let i = 0; i < submission.length; i++) {
     for (let j = 0; j < wordOfTheDay.length; j++) {
       if (submission[i] === wordOfTheDay[j]) {
         if (i != j) {
           console.log('match letter - yellow', submission[i], i, wordOfTheDay[j], j)
-          yellowArr.push({'letter-submission': submission[i], 'index-submission': i, 'letter-answer': wordOfTheDay[j], 'index-answer': j})
+          yellowBoxId = currentRow[i];
+          document.getElementById(yellowBoxId).classList.add("letter-close");
         } else if (i === j) {
           console.log('match index - green', submission[i], i, wordOfTheDay[j], j)
-          greenArr.push('match index - green', submission[i], i, wordOfTheDay[j], j)
-          // colorGreen()
+          greenBoxId = currentRow[i];
+          document.getElementById(greenBoxId).classList.add("letter-match");
         }
-        // matchArr.push(submission[i])
+      } else {
+        grayBoxId = currentRow[i];
+        document.getElementById(grayBoxId).classList.add("letter-mismatch");
       }
     }
   }
-  // console.log(matchArr)
-  // console.log(greenArr)
-  console.log(yellowArr)
 }
-/// are there any matching letters? If not, gray.
-/// if there are any matching letters, do they match placement? If so, green. If not, yellow.
-// for (let i = 0; i < currentRow.length; i++) {
-//   let id = currentRow[i];
-//   let rowElement = document.getElementById(id);
-//   rowElement.classList.add("invalid");
-// }
-// currentRow = [];
-
-
 
 function getNextBox(boxes) {
   const boxesArr = [...boxes];

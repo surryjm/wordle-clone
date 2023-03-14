@@ -63,7 +63,7 @@ body {
   text-align: center;
   padding: 0;
 }
-.letter-after-enter {
+.letter-mismatch {
   color: white;
   background-color: #888;
 }
