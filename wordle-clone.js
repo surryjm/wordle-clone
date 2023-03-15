@@ -82,7 +82,6 @@ async function submitWord() {
 }
 
 function compareWords(submission, currentRow) {
-  console.log(submission, wordOfTheDay)
   let wordMatch = submission.localeCompare(wordOfTheDay)
   if (wordMatch === 0) {
     showWin(currentRow)
@@ -153,10 +152,8 @@ function getNextBox(boxes) {
 function enterLetter(letter) {
   nextBox = getNextBox(boxes);
   if (nextBox === undefined) {
-    console.log("no empty spaces")
     return;
   } else if (currentLength === maxLength && currentLength != 0) {
-    console.log("max length reached")
     return;
   } else {
     nextBox.value = letter;
