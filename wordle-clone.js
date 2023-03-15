@@ -95,26 +95,38 @@ function showWin(currentRow) {
   }
 }
 
+function makeMap(array) {
+  const obj = {};
+  for (let i = 0; i < array.length; i++) {
+    if (obj[array[i]]) {
+      obj[array[i]]++;
+    } else {
+      obj[array[i]] = 1;
+    }
+  }
+  return obj;
+}
+
 function letterComparison(submission, wordOfTheDay, currentRow) {
-  let greenBoxId;
-  let yellowBoxId;
-  let grayBoxId;
-  for (let i = 0; i < submission.length; i++) {
-    for (let j = 0; j < wordOfTheDay.length; j++) {
-      if (submission[i] === wordOfTheDay[j]) {
-        if (i != j) {
-          console.log('match letter - yellow', submission[i], i, wordOfTheDay[j], j)
-          yellowBoxId = currentRow[i];
-          document.getElementById(yellowBoxId).classList.add("letter-close");
-        } else if (i === j) {
-          console.log('match index - green', submission[i], i, wordOfTheDay[j], j)
-          greenBoxId = currentRow[i];
-          document.getElementById(greenBoxId).classList.add("letter-match");
-        }
-      } else {
-        grayBoxId = currentRow[i];
-        document.getElementById(grayBoxId).classList.add("letter-mismatch");
-      }
+  let totalLength = 5;
+  let submissionObj = makeMap(submission);
+  let wordOfTheDayObj = makeMap(wordOfTheDay);
+
+  for (let i = 0; i < totalLength; i++) {
+    if (submission[i] === wordOfTheDay[i]) {
+      document.getElementById(currentRow[i]).classList.add("letter-match");
+      wordOfTheDayObj[submission[i]]--;
+    }
+  }
+
+  for (let i = 0; i < totalLength; i++) {
+    if (submission[i] === wordOfTheDay[i]) {
+      // do nothing
+    } else if (wordOfTheDayObj[submission[i]] && wordOfTheDayObj[submission[i]] > 0) {
+      document.getElementById(currentRow[i]).classList.add("letter-close");
+      wordOfTheDayObj[submission[i]]--;
+    } else {
+      document.getElementById(currentRow[i]).classList.add("letter-mismatch");
     }
   }
 }
