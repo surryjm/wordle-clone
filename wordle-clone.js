@@ -88,6 +88,9 @@ function compareWords(submission, currentRow) {
     showWin(currentRow)
   } else if (currentRound === rounds) {
     alert(`You lost - the word was ${wordOfTheDay}`);
+    setTimeout(() => {
+      document.location.reload();
+    }, 500);
   } else {
     letterComparison(submission, wordOfTheDay, currentRow);
   }
@@ -100,6 +103,9 @@ function showWin(currentRow) {
     document.getElementById(id).classList.add("letter-match", "win-animation-border");
   }
   brand.classList.add("win-animation-text");
+  setTimeout(() => {
+    document.location.reload();
+  }, 10000);
 }
 
 function makeMap(array) {
