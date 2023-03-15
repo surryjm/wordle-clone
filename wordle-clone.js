@@ -3,6 +3,8 @@ let currentElement;
 let idArr = [];
 let currentLength = 0;
 let maxLength = 5;
+let rounds = 6;
+let currentRound = 0;
 let nextBox;
 let letterArr = [];
 let wordOfTheDay;
@@ -37,6 +39,7 @@ function handleEnter() {
     return;
   } else if (currentLength === 5) {
     submitWord();
+    currentRound++;
   }
 }
 
@@ -83,6 +86,8 @@ function compareWords(submission, currentRow) {
   let wordMatch = submission.localeCompare(wordOfTheDay)
   if (wordMatch === 0) {
     showWin(currentRow)
+  } else if (currentRound === rounds) {
+    alert(`You lost - the word was ${wordOfTheDay}`);
   } else {
     letterComparison(submission, wordOfTheDay, currentRow);
   }
