@@ -35,12 +35,13 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .navbar {
-  padding: 15px;
+  padding: 5px;
   border-bottom: 2px black solid;
 }
 .brand {
   font-weight: bold;
   text-align: center;
+  font-size: 40px;
 }
 .word-rows {
   display: grid;
@@ -78,6 +79,32 @@ body {
 .invalid {
   animation: invalid-flash 1s;
 }
+.win-animation-text {
+  background: linear-gradient(60deg, blue, green, goldenrod, orange, crimson, red);
+  background-clip: text;
+  color: transparent;
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  animation: gradient-background 4s ease-in-out infinite;
+}
+.win-animation-border {
+  --angle: 0deg;
+  border-image: linear-gradient(var(--angle), orange, red) 1;
+  animation: 10s rotate linear infinite;
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
 @keyframes invalid-flash {
   5% {
     border-color: crimson;
@@ -85,4 +112,15 @@ body {
   100% {
     border-color: #ccc;
   }
+}
+@keyframes gradient-background {
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

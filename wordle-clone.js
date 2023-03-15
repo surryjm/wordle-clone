@@ -8,6 +8,7 @@ let letterArr = [];
 let wordOfTheDay;
 const boxes = document.querySelectorAll(".letter-box");
 const loadingIcon = document.querySelector(".loading-icon");
+const brand = document.querySelector(".brand");
 
 function isLetter(inputKey) {
   const result = /^[a-zA-Z]$/.test(inputKey);
@@ -91,8 +92,9 @@ function showWin(currentRow) {
   console.log('WIN')
   for (let i = 0; i < currentRow.length; i++) {
     let id = currentRow[i];
-    document.getElementById(id).classList.add("letter-match");
+    document.getElementById(id).classList.add("letter-match", "win-animation-border");
   }
+  brand.classList.add("win-animation-text");
 }
 
 function makeMap(array) {
