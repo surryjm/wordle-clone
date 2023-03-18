@@ -104,7 +104,7 @@ function showWin(currentRow) {
   brand.classList.add("win-animation-text");
   setTimeout(() => {
     document.location.reload();
-  }, 30000);
+  }, 120000);
 }
 
 function makeMap(array) {
